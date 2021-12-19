@@ -16,14 +16,17 @@
                         <div class="col-xl-4 col-lg-5 col-md-7 d-flex flex-column ms-auto me-auto ms-lg-auto me-lg-5">
                             <div class="card card-plain">
                                 <div class="card-header">
-                                    <h4 class="font-weight-bolder">Sign Up</h4>
+                                    <h4 class="font-weight-bolder"><br>Sign Up</h4>
                                 </div>
                                 <div class="card-body">
                                     <form role="form" method="POST" action="{{route('register')}}">
                                         @csrf
-                                        <div class="input-group input-group-outline mb-3">
+                                        <div class="input-group input-group-outline mb-3 is-filled">
                                             <label class="form-label">Nomor Identitas</label>
-                                            <input type="number" name="unique_number" class="form-control" required autofocus>
+                                            <input type="number" name="unique_number" class="form-control is-valid" required autofocus>
+                                            <div class="valid-feedback">
+                                                <i>*NIP(Guru), NIS(SISWA), NO.KTP(Alumni)</i>
+                                            </div>
                                         </div>
                                         <div class="input-group input-group-outline mb-3">
                                             <label class="form-label">Name</label>
@@ -40,11 +43,9 @@
                                         <div class="input-group input-group-outline mb-3">
                                             <select name="role_id" class="form-control opacity-8" id="roles">
                                                 <option selected class="text-center">==Pilih Role==</option>
-                                                <option value="user">User</option>
+                                                <option value="user">User/Alumni</option>
+                                                <option value="receptionist">Receptionist</option>
                                                 <option value="stafTU">Staf Tata Usaha</option>
-                                                <option value="TU">Kepala Tata Usaha</option>
-                                                <option value="Kepsek">Kepala Sekolah</option>
-                                                <option value="administrator">Admin</option>
                                             </select>
                                         </div>
                                         <div class="input-group input-group-outline mb-3">

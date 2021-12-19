@@ -18,6 +18,7 @@ class CreateFilesTable extends Migration
             $table->foreignId('user_id');
             $table->bigInteger('no_agenda');
             $table->bigInteger('no_surat');
+            $table->string('slug');
             $table->string('asal_surat');
             $table->string('perihal');
             $table->date('tanggal_surat');

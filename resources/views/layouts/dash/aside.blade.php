@@ -21,6 +21,7 @@
                     <span class="nav-link-text ms-1">Dashboard</span>
                 </a>
             </li>
+            @if (Auth::user()->hasRole(['administrator', 'kepalaSekolah', 'kepalaTU']))
             <li class="nav-item mt-3">
                 <h6 class="ps-4 ms-2 text-uppercase text-xs text-white font-weight-bolder opacity-8">Kelola Surat</h6>
             </li>
@@ -40,9 +41,11 @@
                     <span class="nav-link-text ms-1">Surat Keluar</span>
                 </a>
             </li>
+            @endif
             <li class="nav-item mt-3">
                 <h6 class="ps-4 ms-2 text-uppercase text-xs text-white font-weight-bolder opacity-8">Kelola Akun</h6>
             </li>
+            @if (Auth::user()->hasRole(['administrator', 'kepalaSekolah', 'stafTU', 'receptionist']))
             <li class="nav-item">
                 <a class="nav-link text-white {{ Request::is('dashboard/users*') ? 'active bg-gradient-primary' : '' }}" href="{{route('dashUsers')}}">
                     <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
@@ -51,6 +54,15 @@
                     <span class="nav-link-text ms-1">Users</span>
                 </a>
             </li>
+            <li class="nav-item">
+                <a class="nav-link text-white {{ Request::is('dashboard/instances*') ? 'active bg-gradient-primary' : '' }}" href="{{route('dashInstances')}}">
+                    <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+                        <i class="bi bi-building"></i>
+                    </div>
+                    <span class="nav-link-text ms-1">Instances</span>
+                </a>
+            </li>
+            @endif
             <li class="nav-item mt-3">
                 <h6 class="ps-4 ms-2 text-uppercase text-xs text-white font-weight-bolder opacity-8">Fitur</h6>
             </li>

@@ -16,16 +16,18 @@ class DashboardController extends Controller
      */
     public function index()
     {
+        $pegawai = User::latest()->whereRoleis(['stafTU'])->count();
+        $pengguna = User::latest()->whereRoleis(['user'])->count();
         if (Auth::user()->hasRole('administrator')) {
             $title = "Administrator";
-            $pegawai = User::latest()->whereRoleis(['stafTU'])->count();
-            $pengguna = User::latest()->whereRoleis(['user'])->count();
-        }elseif (Auth::user()->hasRole('Kepsek')) {
+        }elseif (Auth::user()->hasRole('kepalaSekolah')) {
             $title = "Kepala Sekolah";
-        }elseif (Auth::user()->hasRole('TU')) {
+        }elseif (Auth::user()->hasRole('kepalaTU')) {
             $title = "Tata Usaha";
         }elseif (Auth::user()->hasRole('stafTU')) {
             $title = "Staf Tata Usaha";   
+        }elseif (Auth::user()->hasRole('receptionist')) {
+            $title = "Receptionist";
         }else {
             $title = "User";
         }

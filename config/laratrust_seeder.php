@@ -14,21 +14,32 @@ return [
     'roles_structure' => [
         'administrator' => [
             'users' => 'c,r,u,d',
+            'files' => 'c,r,u,d',
             'profile' => 'r,u'
         ],
-        'Kepsek' => [
+        'kepalaSekolah' => [
             'users' => 'c,r,u,d',
+            'files' => 'c,r,u,d',
             'profile' => 'r,u'
         ],
-        'TU' => [
+        'kepalaTU' => [
             'users' => 'c,r,u,d',
+            'files' => 'c,r,u,d',
             'profile' => 'r,u'
         ],
         'stafTU' => [
             'users' => 'c,r,u,d',
+            'files' => 'c,r,u,d',
+            'profile' => 'r,u'
+        ],
+        'receptionist' => [
+            'users' => 'c,r,u,d',
+            'files' => 'c,r,u,d',
             'profile' => 'r,u'
         ],
         'user' => [
+            'users' => 'r,u',
+            'files' => 'r',
             'profile' => 'r,u',
         ]
     ],

@@ -65,7 +65,7 @@
                         <div class="input-group w-100 input-group-outline mb-3">
                             <select name="role_id" class="form-control opacity-8" id="roles">
                                 @if(count($roles)) @foreach($roles as $row)
-                                <option value="{{old('role_id', $row->id)}}">{{$row->name}}</option>
+                                <option value="{{old('role_id', $row->id)}}">{{$row->display_name}}</option>
                                 @endforeach @endif
                             </select>
                         </div>

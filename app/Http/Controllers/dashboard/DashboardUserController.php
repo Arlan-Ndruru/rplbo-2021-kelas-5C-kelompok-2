@@ -25,24 +25,32 @@ class DashboardUserController extends Controller
      */
     public function index()
     {
-        if (Auth::user()->hasRole('administrator')) {
-            $kepsek = User::whereRoleis(['Kepsek'])->get();
-            $TU = User::whereRoleis(['TU'])->get();
-            $stafTU = User::latest()->whereRoleis(['stafTU'])->paginate(5);
+        if (Auth::user()->hasRole(['administrator','kepalaSekolah'])) {
+            $kepsek = User::whereRoleis(['kepalaSekolah'])->get();
+            $TU = User::whereRoleis(['kepalaTU'])->get();
+            $stafTU = User::latest()->whereRoleis(['stafTU','receptionist'])->paginate(5);
             $user = User::latest()->whereRoleis(['user'])->paginate(5);
+            $params = [
+                'title' => 'Manage Users',
+                'kepalasekolah' => $kepsek,
+                'kepalaTU' => $TU,
+                'stafTU' => $stafTU,
+                'users' => $user,
+                'count_user' => $user->count(),
+                'count_stafTU' => $stafTU->count(),
+                'count_TU' => $TU->count(),
+                'count_kepsek' => $kepsek->count(),
+                'roles' => Role::get(),
+            ];
+        }else{
+            $user = User::latest()->whereRoleis(['user'])->paginate(5);
+            $params = [
+                'title' => 'Manage Users',
+                'users' => $user,
+                'count_user' => $user->count(),
+                'roles' => Role::get(),
+            ];
         }
-        $params = [
-            'title' => 'Manage Users',
-            'kepalasekolah' => $kepsek,
-            'kepalaTU' => $TU,
-            'stafTU' => $stafTU,
-            'users' => $user,
-            'count_user' => $user->count(),
-            'count_stafTU' => $stafTU->count(),
-            'count_TU' => $TU->count(),
-            'count_kepsek' => $kepsek->count(),
-            'roles' => Role::get(),
-        ];
         return view('dash.users.index')->with($params);
     }
 
@@ -53,7 +61,11 @@ class DashboardUserController extends Controller
      */
     public function create()
     {
-        $roles = Role::all()->reverse();
+        if (Auth::user()->hasRole('administrator')) {
+            $roles = Role::all()->reverse();
+        }else{
+            $roles = Role::all()->reverse()->only([4,5,6]);
+        }
         $params = [
             'title' => 'Add User',
             'roles' => $roles

@@ -3,6 +3,7 @@
 @section('content-main')
 
 <div class="row" id="navbar-example2">
+    @if (Auth::user()->hasRole(['administrator', 'kepalaSekolah', 'kepalaTU']))
     <div class="col-xl-3 col-sm-6 mb-xl-0 mb-4">
         <div class="card">
             <div class="card-header p-3 pt-2">
@@ -60,6 +61,7 @@
             </div>
         </div>
     </div>
+    @endif
     <div class="col-xl-3 col-sm-6 mb-xl-0 mb-4">
         <div class="card">
             <div class="card-header p-3 pt-2">
@@ -83,22 +85,19 @@
 <div class="container-fluid py-4 scrollspy-example" data-bs-spy="scroll" data-bs-target="#navbar-example2" data-bs-offset="0" tabindex="0">
     <a href="{{route('dashUserAdd')}}" class="btn btn-outline-dark btn-lg w-25 text-capitalize col-xl-2"><i class="bi bi-person-plus"></i> Add</a>
     @if (session()->has('success'))
-    {{-- <div class="alert alert-success col-xl-5 d-inline" role="alert">
-        
-        {{session('success')}}
-    </div> --}}
-    <div class="col-xl-5 d-inline alert alert-success alert-dismissible fade show" role="alert">
-        <span class="alert-icon align-middle">
-            <div class="spinner-grow text-light" role="status">
-                <span class="visually-hidden">Loading...</span>
-            </div>
-        </span>
-        <span class="alert-text text-white"><strong>{{session('success')}}</strong> check it out!</span>
-        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-        </button>
-    </div>
+        <div class="col-xl-5 d-inline alert alert-success alert-dismissible fade show" role="alert">
+            <span class="alert-icon align-middle">
+                <div class="spinner-grow text-light" role="status">
+                    <span class="visually-hidden">Loading...</span>
+                </div>
+            </span>
+            <span class="alert-text text-white"><strong>{{session('success')}}</strong> check it out!</span>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
     @endif
+    @if (Auth::user()->hasRole(['administrator', 'kepalaSekolah', 'kepalaTU']))
     <div class="row">
         <div class="col-12">
             <div class="card my-4">
@@ -365,6 +364,7 @@
             </div>
         </div>
     </div>
+    @endif
     <div class="row">
         <div class="col-12">
             <div class="card my-4">
