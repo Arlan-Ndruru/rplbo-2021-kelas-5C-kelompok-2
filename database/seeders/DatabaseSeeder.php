@@ -99,6 +99,27 @@ class DatabaseSeeder extends Seeder
 
         // Seeder Intances
             Instance::create([
+                'name' => 'Lainnya',
+                'slug' => 'lain-nya',
+                'alamat' => 'Pekanbaru',
+                'no_hp' => 911,
+                'user_id' => 1,
+            ]);
+            Instance::create([
+                'name' => 'MTS 1 Pekanbaru',
+                'slug' => 'mts-1-pekanbaru',
+                'alamat' => 'Pekanbaru, Jl. Amal Hamzah No.1, Cinta Raja, Kec. Sail, Kota Pekanbaru, Riau 28127',
+                'no_hp' => 76138757,
+                'user_id' => 1,
+            ]);
+            Instance::create([
+                'name' => 'MTS 10 Pekanbaru',
+                'slug' => 'mts-10-pekanbaru',
+                'alamat' => 'Pekanbaru,JL.x, Kota Pekanbaru, Riau 281227',
+                'no_hp' => 7613877676,
+                'user_id' => 1,
+            ]);
+            Instance::create([
                 'name' => 'Alumni MTS 10 Pekanbaru',
                 'slug' => 'alumni-mts-10-pekanbaru',
                 'alamat' => 'Pekanbaru, Jl.xx',

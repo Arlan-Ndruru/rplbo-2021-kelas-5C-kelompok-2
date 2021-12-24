@@ -19,6 +19,11 @@
     <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
     <!-- Material Icons -->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
+    <!-- CSS Files Select -->
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css" rel="stylesheet" />
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js"></script>
     <!-- CSS Files -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css">
     <link id="pagestyle" href="{{URL::asset('css/dash/material-dashboard.css?v=3.0.0')}}" rel="stylesheet" />
@@ -57,6 +62,8 @@
     {{-- Plugins --}}
     @include('layouts.dash.plugins')
 
+    <!--   Core Select JS Files   -->
+    
     <!--   Core JS Files   -->
     <script src="{{URL::asset('js/dash/core/popper.min.js')}}"></script>
     <script src="{{URL::asset('js/dash/core/bootstrap.min.js')}}"></script>

@@ -21,12 +21,12 @@
                     <span class="nav-link-text ms-1">Dashboard</span>
                 </a>
             </li>
-            @if (Auth::user()->hasRole(['administrator', 'kepalaSekolah', 'kepalaTU']))
+            @if (Auth::user()->hasRole(['administrator', 'kepalaSekolah', 'stafTU', 'kepalaTU']))
             <li class="nav-item mt-3">
                 <h6 class="ps-4 ms-2 text-uppercase text-xs text-white font-weight-bolder opacity-8">Kelola Surat</h6>
             </li>
             <li class="nav-item">
-                <a class="nav-link text-white " href="#">
+                <a class="nav-link text-white {{ Request::is('dashboard/suratmasuk*') ? 'active bg-gradient-primary' : '' }}" href="{{ route('dashSmasuks') }}">
                     <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
                         <i class="material-icons opacity-10">table_view</i>
                     </div>
@@ -34,7 +34,7 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link text-white " href="#">
+                <a class="nav-link text-white {{ Request::is('dashboard/suratkeluar*') ? 'active bg-gradient-primary' : '' }}" href="{{ route('dashSkeluars') }}">
                     <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
                         <i class="material-icons opacity-10">table_view</i>
                     </div>
@@ -42,10 +42,10 @@
                 </a>
             </li>
             @endif
+            @if (Auth::user()->hasRole(['administrator', 'kepalaSekolah', 'stafTU','receptionist']))
             <li class="nav-item mt-3">
                 <h6 class="ps-4 ms-2 text-uppercase text-xs text-white font-weight-bolder opacity-8">Kelola Akun</h6>
             </li>
-            @if (Auth::user()->hasRole(['administrator', 'kepalaSekolah', 'stafTU', 'receptionist']))
             <li class="nav-item">
                 <a class="nav-link text-white {{ Request::is('dashboard/users*') ? 'active bg-gradient-primary' : '' }}" href="{{route('dashUsers')}}">
                     <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
@@ -87,7 +87,7 @@
     <div class="sidenav-footer position-absolute w-100 bottom-0 ">
         <div class="mx-3">
             <a class="btn bg-gradient-primary mt-4 w-100"
-                href="/" type="button">Home</a>
+                href="/" type="button"><i class="material-icons">house</i> Home</a>
         </div>
     </div>
 </aside>

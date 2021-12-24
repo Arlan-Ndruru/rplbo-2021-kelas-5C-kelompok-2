@@ -12,6 +12,11 @@ class Instance extends Model
 
     protected $guarded = ['id'];
 
+    public function files()
+    {
+        return $this->hasMany(File::class);
+    }
+
     public function sluggable(): array
     {
         return [

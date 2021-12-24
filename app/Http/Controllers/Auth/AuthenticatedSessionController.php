@@ -41,7 +41,7 @@ class AuthenticatedSessionController extends Controller
 
             $request->session()->regenerateToken();
 
-            return redirect('/login')->with('confirm', 'Please contact Admin or Resepsionis for activation your account!');
+            return redirect('/login')->with('confirm', 'Please,  Registration because your Account not Found! or contact Admin or Resepsionis for activation your account!');
         }
     }
 

@@ -2,6 +2,7 @@
 
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
 
 class CreateFilesTable extends Migration
@@ -16,15 +17,16 @@ class CreateFilesTable extends Migration
         Schema::create('files', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id');
-            $table->bigInteger('no_agenda');
-            $table->bigInteger('no_surat');
-            $table->string('slug');
-            $table->string('asal_surat');
+            $table->string('no_surat')->unique();
+            $table->string('slug')->unique();
+            $table->string('judul_surat');
+            $table->foreignId('asal_surat');
             $table->string('perihal');
             $table->date('tanggal_surat');
             $table->boolean('jenis_surat');
-            $table->date('tanggal_diterima');
+            $table->dateTime('tanggal_diterima')->default(DB::raw('CURRENT_TIMESTAMP'));
             $table->text('keterangan');
+            $table->string('doc')->nullable();
             $table->string('status');
             $table->timestamps();
         });

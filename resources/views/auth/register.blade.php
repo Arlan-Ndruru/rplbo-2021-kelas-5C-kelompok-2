@@ -40,17 +40,18 @@
                                             <label class="form-label">Password</label>
                                             <input type="password" name="password" class="form-control" required>
                                         </div>
-                                        <div class="input-group input-group-outline mb-3">
+                                        <div class="input-group input-group-outline mb-3 is-filled">
+                                            <label class="form-label">Register Sebagai:</label>
                                             <select name="role_id" class="form-control opacity-8" id="roles">
-                                                <option selected class="text-center">==Pilih Role==</option>
+                                                <option></option>
                                                 <option value="user">User/Alumni</option>
                                                 <option value="receptionist">Receptionist</option>
                                                 <option value="stafTU">Staf Tata Usaha</option>
                                             </select>
                                         </div>
-                                        <div class="input-group input-group-outline mb-3">
-                                            <label class="form-label">Phone Number</label>
-                                            <input type="number" name="no_hp" class="form-control" required>
+                                        <div class="input-group input-group-outline mb-3 is-filled">
+                                            <label class="form-label">Phone Number (+62)</label>
+                                            <input type="number" name="no_hp" value="62" class="form-control" required>
                                         </div>
                                         <div class="text-center">
                                             <button type="submit"

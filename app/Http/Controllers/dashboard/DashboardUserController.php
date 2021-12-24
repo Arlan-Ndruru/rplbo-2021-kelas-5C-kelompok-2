@@ -150,6 +150,7 @@ class DashboardUserController extends Controller
         $rules =[
             'name' => 'required',
             'no_hp' => 'required',
+            'status' => 'required',
             'foto' => 'image|file|max:2048',
         ];
         if ($request->unique_number != $user->unique_number) {
@@ -163,7 +164,7 @@ class DashboardUserController extends Controller
         }
 
         $validatedData = $request->validate($rules);
-        
+        // dd($validatedData);
         if ($request->file('foto')) {
             if ($request->oldFoto) {
                 Storage::delete($request->oldFoto);

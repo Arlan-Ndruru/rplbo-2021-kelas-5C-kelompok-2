@@ -17,7 +17,7 @@ class CreateInstancesTable extends Migration
             $table->id();
             $table->foreignId('user_id');
             $table->string('name');
-            $table->string('slug');
+            $table->string('slug')->unique();
             $table->string('alamat');
             $table->bigInteger('no_hp');
             $table->timestamps();

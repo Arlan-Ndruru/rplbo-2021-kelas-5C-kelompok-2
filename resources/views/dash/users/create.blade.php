@@ -62,16 +62,18 @@
                             @enderror
                         </div>
 
-                        <div class="input-group w-100 input-group-outline mb-3">
+                        <div class="input-group w-100 input-group-outline mb-3 is-filled">
+                            <label class="form-label">Pilih role</label>
                             <select name="role_id" class="form-control opacity-8" id="roles">
+                                <option>Tentukan:</option>
                                 @if(count($roles)) @foreach($roles as $row)
                                 <option value="{{old('role_id', $row->id)}}">{{$row->display_name}}</option>
                                 @endforeach @endif
                             </select>
                         </div>
-                        <div class="input-group w-100 input-group-outline mb-3">
-                            <label class="form-label">Phone Number</label>
-                            <input type="number" name="no_hp" class="form-control @error('no_hp') is-invalid @enderror" required value="{{old('no_hp')}}">
+                        <div class="input-group w-100 input-group-outline mb-3 is-filled">
+                            <label class="form-label">Phone Number (+62)</label>
+                            <input type="number" name="no_hp" class="form-control @error('no_hp') is-invalid @enderror" required value="62{{old('no_hp')}}">
                             @error('no_hp')
                                 <div class="invalid-feedback">
                                     {{$message}}

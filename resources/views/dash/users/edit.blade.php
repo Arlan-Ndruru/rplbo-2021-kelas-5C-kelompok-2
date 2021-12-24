@@ -42,6 +42,19 @@
                                 </div>
                             @enderror
                         </div>
+                        <div class="input-group w-100 input-group-outline mb-3 is-filled">
+                            <label class="form-label">Status</label>
+                            {{-- <input type="status" name="status" class="form-control @error('status') is-invalid @enderror" required value="{{old('status', $user->status)}}"> --}}
+                            <select name="status" id="" class="form-control">
+                                <option value="0" {{ ($user->status == 0) ? 'selected' : '' }}>Noctive</option>
+                                <option value="1" {{ ($user->status == 1) ? 'selected' : '' }}>Active</option>
+                            </select>
+                            @error('status')
+                                <div class="invalid-feedback">
+                                    {{$message}}
+                                </div>
+                            @enderror
+                        </div>
                         <div class="input-group w-100 input-group-outline is-valid mb-3">
                             <label class="form-label">New Password</label>
                             <input type="password" name="password" class="form-control is-valid @error('password') is-invalid @enderror">
