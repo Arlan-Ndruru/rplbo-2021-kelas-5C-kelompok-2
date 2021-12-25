@@ -27,7 +27,6 @@
                 <div class="input-group input-group-outline m-4 w-75 is-filled">
                     <label class="form-label">Advance Search</label>
                     <input value="{{ request('search') }}" name="search" type="text" class="form-control" aria-describedby="button-addon2">
-                    <label class="form-label">Advance Search</label>
                     <input value="{{ request('searchDate') }}" name="searchdate" type="date" class="form-control"
                         aria-describedby="button-addon2">
                     <button type="submit" class="btn btn-primary m-2" type="button" id="button-addon2"><i class="bi bi-search"></i></button>
