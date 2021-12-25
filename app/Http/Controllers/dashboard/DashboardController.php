@@ -94,14 +94,20 @@ class DashboardController extends Controller
                 'c3' => $pegawai,
                 'c4' => $pengguna,
             ];
-        }
+        } elseif (Auth::user()->hasRole('stafTU')) {
+            $params = [
+                'title' => $title,
+                'c3' => $pegawai,
+                'smasuk' => $smasuk->count(),
+                'skeluar' => $skeluar,
+                'c4' => $pengguna,
+            ];
+        }   
         else {
             $params = [
                 'title' => $title,
                 'c3' => $pegawai,
                 'c4' => $pengguna,
-                'smasuk' => $smasuk->count(),
-                'skeluar' => $skeluar,
             ];
         }
 
