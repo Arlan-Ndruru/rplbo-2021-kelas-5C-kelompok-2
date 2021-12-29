@@ -76,9 +76,9 @@
                                             <span class="text-secondary text-sm mb-0 font-weight-bold">
                                                 @if (Auth::user()->hasRole(['administrator', 'kepalaSekolah']))
                                                     @if($file->status == "kt-uploud"){{-- Kepala TU --}}
-                                                        <span class="badge bg-secondary">Belum disetujui</span>
+                                                        <span class="badge bg-secondary">Belum selesai</span>
                                                     @elseif($file->status == "ksk-uploud"){{-- Kepala Sekolah --}}
-                                                        <span class="badge bg-success">ditandatangani dan disetujui</span>
+                                                        <span class="badge bg-success">Selesai</span>
                                                     @elseif($file->status == "usr-uploud"){{-- User/alumni --}}
                                                         <span class="badge bg-secondary">Belum dicek Staf TU</span>
                                                     @elseif($file->status == "st-uploud"){{-- Staf TU --}}

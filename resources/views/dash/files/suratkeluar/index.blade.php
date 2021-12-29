@@ -76,13 +76,15 @@
                                     </td>
                                     <td class="text-center">
                                         <span class="text-secondary text-sm mb-0 font-weight-bold">
-                                            @if (Auth::user()->hasRole(['administrator', 'kepalaSekolah,']))
+                                            @if (Auth::user()->hasRole(['administrator', 'kepalaSekolah']))
                                                 @if($file->status == "kt-uploud"){{-- Kepala TU --}}
                                                     <span class="badge bg-secondary">Belum disetujui</span>
                                                 @elseif($file->status == "ksk-uploud"){{-- Kepala Sekolah --}}
                                                     <span class="badge bg-success">ditandatangani dan disetujui</span>
                                                 @elseif($file->status == "st-uploud"){{-- Staf TU --}}
                                                     <span class="badge bg-secondary">Sedang dikelola Kepala TU</span>
+                                                @elseif($file->status == "valid-uploud"){{-- Staf TU --}}
+                                                    <span class="badge bg-warning">Ajukan revisi</span>
                                                 @else
                                                     <span class="badge bg-warning">Surat Diajukan Admin</span>
                                                 @endif
@@ -97,6 +99,10 @@
                                             @elseif(Auth::user()->hasRole(['stafTU']))
                                                 @if($file->status == "st-uploud")
                                                     <span class="badge bg-info">Surat Diajukan Kepada Kepala TU</span>
+                                                @elseif($file->status == "ksk-uploud")
+                                                    <span class="badge bg-success">Surat Disetujui, Dapat diarsipkan</span>
+                                                @elseif($file->status == "valid-uploud")
+                                                    <span class="badge bg-warning">Surat Ditolak, Lakukan Revisi sesuai keterangan</span>
                                                 @else
                                                     <span class="badge bg-danger">Surat Diajukan Admin</span>
                                                 @endif

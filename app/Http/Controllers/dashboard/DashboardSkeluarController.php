@@ -31,7 +31,11 @@ class DashboardSkeluarController extends Controller
                     ->where('status', 'adm-uploud');
         }else {
             $skeluar = File::latest()->where('jenis_surat', 1)
-                ->where('status', 'st-uploud');
+                ->where('status', 'st-uploud')
+                ->orwhere('jenis_surat', 1)
+                ->where('status', 'valid-uploud')
+                ->orwhere('jenis_surat', 1)
+                ->where('status', 'ksk-uploud');
         }
         $params = [
             'title' => 'Manage Surat Keluar',
@@ -152,6 +156,7 @@ class DashboardSkeluarController extends Controller
             'perihal' => 'required',
             'tanggal_surat' => 'required',
             'keterangan' => 'required',
+            'status' => 'required',
         ];
         if ($request->no_surat != $file->no_surat) {
             $rules['no_surat'] = 'required|unique:files';

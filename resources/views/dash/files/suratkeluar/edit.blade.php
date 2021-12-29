@@ -65,8 +65,9 @@
                                     <option value="st-uploud" {{ ($skeluar->status == "st-uploud") ? 'selected' : '' }}>Belum Proses</option>
                                     <option value="kt-uploud" {{ ($skeluar->status == "kt-uploud") ? 'selected' : '' }} >Proses, Ajukan Kepada KepalaSekolah</option>
                                     <option value="valid-uploud" {{ ($skeluar->status == "valid-uploud") ? 'selected' : '' }}>Ajukan Revisi</option>
-                                @else
+                                    @else
                                     <option value="kt-uploud" {{ ($skeluar->status == "kt-uploud") ? 'selected' : '' }}>Belum diproses</option>
+                                    <option value="valid-uploud" {{ ($skeluar->status == "valid-uploud") ? 'selected' : '' }}>Ajukan Revisi</option>
                                     <option value="ksk-uploud" {{ ($skeluar->status == "ksk-uploud") ? 'selected' : '' }} >Telah DiLeges/TTD/Disetujui</option>
                                 @endif                        
                             </select>
